@@ -1,16 +1,23 @@
 const form = document.querySelector('form');
 
+
 const isValidPhoneNumber =(phoneNumber) => (/(\+?( |-|\.)?\d{1,2}( |-|\.)?)?(\(?\d{3}\)?|\d{3})( |-|\.)?(\d{3}( |-|\.)?\d{4})$/.test(phoneNumber));
 
 const isValidEmail = (emailAddress) => (/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(emailAddress))
 
 const isEmptyString = (string) => (!/^[A-Za-z ]+$/.test(string.trim()))
 
-const isValidNumberField = (numberInputField) => (
-  numberInputField.value !== '' &&
+const isValidNumberField = (numberInputField) => {
+  
+  return numberInputField.value !== '' &&
   numberInputField.value >= numberInputField.min &&
   numberInputField.value <= numberInputField.max
-);
+  
+};
+
+const isValidDropdownSelection = (selectionField) => (
+  selectionField.value !== '' || selectionField.value !== 'blank'
+)
 
 function handleOtherPetTypeSelection(event) {
   if(event.target instanceof HTMLSelectElement){
@@ -22,22 +29,21 @@ function handleOtherPetTypeSelection(event) {
     else {
       otherPetTypeInput.classList.add('is-hidden')
     }
+
   }
 };
 
-function handleInputFieldValidation(event){
-  const inputField = event.target;
-  const inputType = inputField.type;
-
-  const validInput =
-    (inputType === "text" && !isEmptyString(inputField.value)) 
-    || (inputType === "tel" && isValidPhoneNumber(inputField.value))
-    || (inputType === "email" && isValidEmail(inputField.value))
-    || (inputType === "number" && isValidNumberField(inputField));
-
-
-  toggleFieldValidityOutline(inputField, validInput);
-  toggleFieldValidityIcons(`${inputField.name}-validator`, validInput);
+const isFieldValid = (formField) => { 
+  const fieldType = formField.type;
+  console.log(formField)
+  console.log(`Checking form field ${formField.name} which is a "${fieldType}" field with the current value of "${formField.value}"`)
+  return (
+    (fieldType === "text" && !isEmptyString(formField.value)) 
+    || (fieldType === "number" && isValidNumberField(formField))
+    || (fieldType === "tel" && isValidPhoneNumber(formField.value))
+    || (fieldType === "email" && isValidEmail(formField.value)) 
+    || (fieldType === "select-one" && isValidDropdownSelection(formField))
+  );
 }
 
 function toggleFieldValidityOutline(element, isValid){
@@ -90,17 +96,42 @@ function handleAgeChange(event){
   }
 }
 
+function manageSubmitButtonDisabledState() {
+  const invalidFormFields = formFields.filter((field) => {
+    console.log(`Checking field ${field.name} (current value: ${field.value})`)
+    return !isFieldValid(field)
+  })
+  // if (submitButton instanceof HTMLButtonElement){
+    if (invalidFormFields.length === 0){
+      submitButton.disabled = false;
+    }
+    else{
+      submitButton.disabled = true;
+    }
+  // }
+}
+
 
 const petTypeDropdown = form.elements['pet-type-dropdown'];
-const textInputFields = form.querySelectorAll('input[type=text], input[type=tel], input[type=email], input[type=number]');
-
 const petAgeNumberField = form.elements['pet-age'];
+const submitButton = form.elements['submit-button'];
+const formFields = Array.from(form.elements)
+  .filter((element) => element.type !== "radio" && element.type !== "submit");
 
 
 petTypeDropdown.addEventListener('change', handleOtherPetTypeSelection);
 
 petAgeNumberField.addEventListener('input', handleAgeChange);
 
-textInputFields.forEach((element) => {
-  element.addEventListener('blur', handleInputFieldValidation);
+formFields.forEach((element) => {
+  element.addEventListener('blur', (event) => {  
+    const formField = event.target;
+
+    const fieldIsValid = isFieldValid(formField)
+
+    console.log(`  ${formField.name} was ${fieldIsValid ? '' : 'in'}valid`)
+    toggleFieldValidityOutline(formField, fieldIsValid);
+    toggleFieldValidityIcons(`${formField.name}-validator`, fieldIsValid);
+    // manageSubmitButtonDisabledState()
+  });
 });
