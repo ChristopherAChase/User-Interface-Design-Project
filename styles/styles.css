@@ -1,0 +1,10 @@
+.root{ 
+  --midnight-blue: #003B6D;
+}
+.brand-name-logo {
+  height: 5em;
+}
+
+.navbar-item:hover{
+  background-color: var(--midnight-blue);
+}
