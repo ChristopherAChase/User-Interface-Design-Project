@@ -8,3 +8,26 @@
 .navbar-item:hover{
   background-color: var(--midnight-blue);
 }
+
+select.success, input.success{
+  /* background-color: hsla(141, 34%, 74%, 0.527) ; */
+  border-color: hsl(141, 53%, 53%);
+  border-width: 2px;
+}
+
+select.error, input.error{
+  border-color: hsl(348, 100%, 61%);
+  border-width: 2px;
+}
+
+.fa-times{
+  color: hsl(348, 100%, 61%);
+}
+
+.fa-check{
+  color: hsl(141, 53%, 53%);
+}
+
+.fa-paw{ 
+  color: black;
+}
