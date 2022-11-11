@@ -20,7 +20,7 @@ const isValidString = (string) => (stringValidationRegex.test(string.trim()))
 const isValidNumberField = (numberInputField) => {
   const [value, minimum, maximum] = Int32Array.from([numberInputField.value, numberInputField.min, numberInputField.max]);
 
-  value !== '' && minimum <= value && value <= maximum
+  return(value !== '' && minimum <= value && value <= maximum)
 };
 
 const isValidDropdownSelection = (selectionField) => (selectionField.value !== '' && selectionField.value !== 'blank')
@@ -40,6 +40,7 @@ function handleOtherPetTypeSelection(event) {
 
 const isFieldValid = (formField) => { 
   const fieldType = formField.type;
+
   return (
     (fieldType === "text" && isValidString(formField.value)) 
     || (fieldType === "number" && isValidNumberField(formField))
