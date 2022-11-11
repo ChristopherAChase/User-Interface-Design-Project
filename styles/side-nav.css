@@ -1,0 +1,51 @@
+html {
+  scroll-behavior: smooth;
+}
+main {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  font-family: system-ui, sans-serif;
+}
+
+#side-nav {
+  white-space: nowrap;
+  background: #6699CC;
+  height: 100vh;
+}
+
+#side-nav ul {
+  
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Only stick if you can fit */
+@media (min-height: 300px) {
+  #side-nav ul{
+    height: 30%;
+  }
+  #side-nav, #side-nav ul {
+    position: sticky;
+    top: 0;
+  }
+  #side-nav ul {
+    top: 35%;
+  }
+}
+
+#side-nav ul li a {
+  text-align: right;
+  box-sizing: border-box;
+  display: block;
+  padding: 0.5rem 1.1rem;
+  font-size: .9rem;
+  color: white;
+  text-decoration: none;
+}
+
+#side-nav ul li a.is-current {
+  color: #676767;
+  background-color: white;
+}
