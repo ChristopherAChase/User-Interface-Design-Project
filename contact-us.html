@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" class="has-navbar-fixed-top">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
   <link rel="stylesheet" href="./styles/styles.css">
+  <link rel="stylesheet" href="./styles/side-nav.css">
   <script defer 
     src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"
     integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" 
@@ -13,10 +14,9 @@
   </script>
   <title>Paradigm Pet Professionals | Contact Us</title>
 </head>
-<body>
-  <header>
-    <nav class="navbar" role="navigation" aria-label="main navigation" >
-      <div class="container">
+<body class="container">
+  <header class="pt-3">
+      <nav class="navbar" role="navigation" aria-label="main navigation" >
         <div class="navbar-brand">
           <a href="./index.html">
             <img src="../assets/Brand logo.png" class="brand-name-logo"
@@ -44,7 +44,7 @@
               <div class="navbar-dropdown">
                 <a href="./dogs.html#diet-and-exercise" class="navbar-item">Diet & Exercise</a>
                 <a href="./dogs.html#grooming-and-handling" class="navbar-item">Grooming & Handling</a>
-                <a href="./dogs.html#vaccinations-and-medication" class="navbar-item">Vaccinations & Medications</a>
+                <a href="./dogs.html#vaccinations-and-medications" class="navbar-item">Vaccinations & Medications</a>
               </div>
             </div>
             <div class="navbar-item has-dropdown is-hoverable">
@@ -53,177 +53,196 @@
                 <a href="./small-animals.html#additional-resources" class="navbar-item">Additional Resources</a>
               </div>
             </div>
-            <a href="#" class="navbar-item">Contact Us</a>
+            <a href="./contact-us.html" class="navbar-item is-current">Contact Us</a>
           </div>
         </div>
-      </div>
-    </nav>
+      </nav>
   </header>
-  <main class="container">
-    <form action="#" class="pt-6" id="consultation-request-form">
-      <div class="columns">
-        <div class="column">
-          <h2 class="is-size-3" >Pet Owner:</h2>
-          <div class="field">
-            <label for="owner-name" class="label is-normal">Name</label>
-            <div class="control has-icons-left has-icons-right">
-              <input class="input" placeholder="John Doe" type="text" name="owner-name" id="owner-name-input" required>
-              <span class="icon is-small is-left">
-                <i class="fas fa-user"></i>
-              </span>
-              <span class="icon is-small is-right">
-                <i class="fas fa-times is-hidden owner-name-validator"></i>
-                <i class="fas fa-check is-hidden owner-name-validator"></i>
-              </span>
-              <p class="help is-danger is-hidden">Please enter a name</p>
-            </div>
-          </div>
-          <div class="field">
-            <label for="email-address" class="label is-normal">Email Address</label>
-            <div class="control has-icons-left has-icons-right">
-              <input class="input" placeholder="john.doe@email.com" type="email" name="email-address" id="email-address-input">
-              <span class="icon is-small is-left" >
-                <i class="fas fa-envelope" ></i>
-              </span>
-              <span class="icon is-small is-right">
-                <i class="fas fa-times is-hidden email-address-validator"></i>
-                <i class="fas fa-check is-hidden email-address-validator"></i>
-              </span>
-            </div>
-          </div>
-          <div class="field">
-            <label for="phone-number" class="label is-normal">Phone Number</label>
-            <div class="control has-icons-left has-icons-right">
-              <input class="input" type="tel" name="phone-number" id="phone-number-input" placeholder="(123) 456-7890">
-              <span class="icon is-small is-left"><i class="fas fa-phone"></i></span>
-              <span class="icon is-small is-right">
-                <i class="fas fa-times is-hidden phone-number-validator"></i>
-                <i class="fas fa-check is-hidden phone-number-validator"></i>
-              </span>
-            </div>
-          </div>
-          <div class="field">
-            <label class="label is-normal" for="timezone-dropdown">Timezone</label>
-            <div class="control is-expanded">
-              <div class="select is-fullwidth">
-                <select name="timezone-dropdown" id="timezone-dropdown">
-                  <option data-time-zone-id="1" data-gmt-adjustment="GMT-10:00" data-use-daylight="0" value="-10">(GMT-10:00) Hawaii</option>
-                  <option data-time-zone-id="2" data-gmt-adjustment="GMT-09:00" data-use-daylight="1" value="-9">(GMT-09:00) Alaska</option>
-                  <option data-time-zone-id="3" data-gmt-adjustment="GMT-08:00" data-use-daylight="1" value="-8">(GMT-08:00) Pacific Time (US & Canada)</option>
-                  <option data-time-zone-id="4" data-gmt-adjustment="GMT-07:00" data-use-daylight="1" value="-7">(GMT-07:00) Mountain Time (US & Canada)</option>
-                  <option selected data-time-zone-id="5" data-gmt-adjustment="GMT-06:00" data-use-daylight="1" value="-6">(GMT-06:00) Central Time (US & Canada)</option>
-                  <option data-time-zone-id="6" data-gmt-adjustment="GMT-05:00" data-use-daylight="1" value="-5">(GMT-05:00) Eastern Time (US & Canada)</option>
-                  <option data-time-zone-id="7" data-gmt-adjustment="GMT-04:00" data-use-daylight="1" value="-4">(GMT-04:00) Atlantic Time (Canada)</option>
-                </select>
+  <main>
+    <nav id="side-nav">
+      <ul>
+        <li><a href="#form" class="side-nav_link">Request Form</a></li>
+      </ul>
+    </nav>
+    <div id="main-content" class="pt-6 pl-5 pr-5 pb-6">
+      <section id="form">
+        <form action="#" class="pt-6" id="consultation-request-form">
+          <div class="columns">
+            <div class="column">
+              <h2 class="is-size-3" >Pet Owner:</h2>
+              <div class="field">
+                <label for="owner-name" class="label is-normal">Name</label>
+                <div class="control has-icons-left has-icons-right">
+                  <input class="input" placeholder="John Doe" type="text" name="owner-name" id="owner-name-input" required>
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-user"></i>
+                  </span>
+                  <span class="icon is-small is-right">
+                    <i class="fas fa-times is-hidden owner-name-validator"></i>
+                    <i class="fas fa-check is-hidden owner-name-validator"></i>
+                  </span>
+                  <p class="help is-danger is-hidden">Please enter a name</p>
+                </div>
+              </div>
+              <div class="field">
+                <label for="email-address" class="label is-normal">Email Address</label>
+                <div class="control has-icons-left has-icons-right">
+                  <input class="input" placeholder="john.doe@email.com" type="email" name="email-address" id="email-address-input">
+                  <span class="icon is-small is-left" >
+                    <i class="fas fa-envelope" ></i>
+                  </span>
+                  <span class="icon is-small is-right">
+                    <i class="fas fa-times is-hidden email-address-validator"></i>
+                    <i class="fas fa-check is-hidden email-address-validator"></i>
+                  </span>
+                </div>
+              </div>
+              <div class="field">
+                <label for="phone-number" class="label is-normal">Phone Number</label>
+                <div class="control has-icons-left has-icons-right">
+                  <input class="input" type="tel" name="phone-number" id="phone-number-input" placeholder="(123) 456-7890">
+                  <span class="icon is-small is-left"><i class="fas fa-phone"></i></span>
+                  <span class="icon is-small is-right">
+                    <i class="fas fa-times is-hidden phone-number-validator"></i>
+                    <i class="fas fa-check is-hidden phone-number-validator"></i>
+                  </span>
+                </div>
+              </div>
+              <div class="field">
+                <label class="label is-normal" for="timezone-dropdown">Timezone</label>
+                <div class="control is-expanded">
+                  <div class="select is-fullwidth">
+                    <select name="timezone-dropdown" id="timezone-dropdown">
+                      <option data-time-zone-id="1" data-gmt-adjustment="GMT-10:00" data-use-daylight="0" value="-10">(GMT-10:00) Hawaii</option>
+                      <option data-time-zone-id="2" data-gmt-adjustment="GMT-09:00" data-use-daylight="1" value="-9">(GMT-09:00) Alaska</option>
+                      <option data-time-zone-id="3" data-gmt-adjustment="GMT-08:00" data-use-daylight="1" value="-8">(GMT-08:00) Pacific Time (US & Canada)</option>
+                      <option data-time-zone-id="4" data-gmt-adjustment="GMT-07:00" data-use-daylight="1" value="-7">(GMT-07:00) Mountain Time (US & Canada)</option>
+                      <option selected data-time-zone-id="5" data-gmt-adjustment="GMT-06:00" data-use-daylight="1" value="-6">(GMT-06:00) Central Time (US & Canada)</option>
+                      <option data-time-zone-id="6" data-gmt-adjustment="GMT-05:00" data-use-daylight="1" value="-5">(GMT-05:00) Eastern Time (US & Canada)</option>
+                      <option data-time-zone-id="7" data-gmt-adjustment="GMT-04:00" data-use-daylight="1" value="-4">(GMT-04:00) Atlantic Time (Canada)</option>
+                    </select>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-        <div class="column">
-          <h2 class="is-size-3">Pet:</h2>
-          <div class="field">
-            <label for="pet-name" class="label is-normal">Pet Name</label>
-            <div class="control has-icons-left has-icons-right">
-              <input class="input" placeholder="Dash" type="text" name="pet-name" id="pet-name-input">
-              <span class="icon is-small is-left">
-                <i class="fas fa-paw"></i>
-              </span>
-              <span class="icon is-small is-right pr-6">
-                <i class="fas fa-times is-hidden pet-name-validator"></i>
-                <i class="fas fa-check is-hidden pet-name-validator"></i>
-              </span>
-            </div>
-          </div>
-          <div class="field">
-            <label class="label is-normal" for="pet-type-dropdown">Pet Type</label>
-            
-            <div class="control has-icons-left has-icons-right">
-              <div class="select is-fullwidth" id="pet-type-dropdown_container">
-                <select name="pet-type-dropdown" id="pet-type-dropdown" >
-                  <option data-pet-type-id="0"  value="blank"></option>
-                  <option data-pet-type-id="1"  value="cat">Cat</option>
-                  <option data-pet-type-id="2"  value="dog">Dog</option>
-                  <option data-pet-type-id="3"  value="gerbil">Gerbil</option>
-                  <option data-pet-type-id="4"  value="ferret">Ferret</option>
-                  <option data-pet-type-id="5"  value="hamster">Hamster</option>
-                  <option data-pet-type-id="6"  value="rat">Rat</option>
-                  <option data-pet-type-id="7"  value="snake">Snake</option>
-                  <option data-pet-type-id="8"  value="bird">Bird</option>
-                  <option data-pet-type-id="9"  value="fish">Fish</option>
-                  <option data-pet-type-id="10" value="other">Other</option>
-                </select>
-              </div>
-              <div class="icon is-small is-left">
-                <i class="fas fa-paw"></i>
-              </div>
-              <span class="icon is-small is-right pr-6">
-                <i class="fas fa-times is-hidden pet-type-dropdown-validator"></i>
-                <i class="fas fa-check is-hidden pet-type-dropdown-validator"></i>
-              </span>
-  
-            </div>
-          </div>
-  
-          <div class="field is-hidden" id="other-pet-type-container">
-            <label for="other-pet-type" class="label is-normal">Pet Type</label>
-            <div class="control has-icons-left has-icons-right">
-              <input class="input" type="text" name="other-pet-type" id="other-pet-type-input">
-              <span class="icon is-small is-left">
-                <i class="fas fa-paw"></i>
-              </span>
-              <span class="icon is-small is-right pr-6">
-                <i class="fas fa-times is-hidden other-pet-type-validator"></i>
-                <i class="fas fa-check is-hidden other-pet-type-validator"></i>
-              </span>
-            </div>
-          </div>
-  
-          <div class="field">
-          
-            <label for="pet-age" class="label is-normal">Age</label>
-            <div class="columns">
-              <div class="column is-expanded">
-                <div class="control is-expanded has-icons-left has-icons-right">
-                  <input class="input" type="number" name="pet-age" id="pet-name-input" min="1" max="30">
+            <div class="column">
+              <h2 class="is-size-3">Pet:</h2>
+              <div class="field">
+                <label for="pet-name" class="label is-normal">Pet Name</label>
+                <div class="control has-icons-left has-icons-right">
+                  <input class="input" placeholder="Dash" type="text" name="pet-name" id="pet-name-input">
                   <span class="icon is-small is-left">
                     <i class="fas fa-paw"></i>
                   </span>
-                  <span class="icon is-small is-right">
-                    <i class="fas fa-times is-hidden pet-age-validator"></i>
-                    <i class="fas fa-check is-hidden pet-age-validator"></i>
+                  <span class="icon is-small is-right pr-6">
+                    <i class="fas fa-times is-hidden pet-name-validator"></i>
+                    <i class="fas fa-check is-hidden pet-name-validator"></i>
                   </span>
                 </div>
               </div>
-              
-              <div class="control">
-                <div>
-                  <label class="radio">
-                  <input type="radio" name="age-unit" value="months" id="age-unit-months">
-                    Months
-                  </label>
-                </div>
-                <div>
-                  <label class="radio">
-                  <input type="radio" name="age-unit" value="year" id="age-unit-years" checked>
-                    Years
-                  </label>
-
+              <div class="field">
+                <label class="label is-normal" for="pet-type-dropdown">Pet Type</label>
+                
+                <div class="control has-icons-left has-icons-right">
+                  <div class="select is-fullwidth" id="pet-type-dropdown_container">
+                    <select name="pet-type-dropdown" id="pet-type-dropdown" >
+                      <option data-pet-type-id="0"  value="blank"></option>
+                      <option data-pet-type-id="1"  value="cat">Cat</option>
+                      <option data-pet-type-id="2"  value="dog">Dog</option>
+                      <option data-pet-type-id="3"  value="gerbil">Gerbil</option>
+                      <option data-pet-type-id="4"  value="ferret">Ferret</option>
+                      <option data-pet-type-id="5"  value="hamster">Hamster</option>
+                      <option data-pet-type-id="6"  value="rat">Rat</option>
+                      <option data-pet-type-id="7"  value="snake">Snake</option>
+                      <option data-pet-type-id="8"  value="bird">Bird</option>
+                      <option data-pet-type-id="9"  value="fish">Fish</option>
+                      <option data-pet-type-id="10" value="other">Other</option>
+                    </select>
+                  </div>
+                  <div class="icon is-small is-left">
+                    <i class="fas fa-paw"></i>
+                  </div>
+                  <span class="icon is-small is-right pr-6">
+                    <i class="fas fa-times is-hidden pet-type-dropdown-validator"></i>
+                    <i class="fas fa-check is-hidden pet-type-dropdown-validator"></i>
+                  </span>
+      
                 </div>
               </div>
-
+      
+              <div class="field is-hidden" id="other-pet-type-container">
+                <label for="other-pet-type" class="label is-normal">Pet Type</label>
+                <div class="control has-icons-left has-icons-right">
+                  <input class="input" type="text" name="other-pet-type" id="other-pet-type-input">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-paw"></i>
+                  </span>
+                  <span class="icon is-small is-right pr-6">
+                    <i class="fas fa-times is-hidden other-pet-type-validator"></i>
+                    <i class="fas fa-check is-hidden other-pet-type-validator"></i>
+                  </span>
+                </div>
+              </div>
+      
+              <div class="field">
+              
+                <label for="pet-age" class="label is-normal">Age</label>
+                <div class="columns">
+                  <div class="column is-expanded">
+                    <div class="control is-expanded has-icons-left has-icons-right">
+                      <input class="input" type="number" name="pet-age" id="pet-name-input" min="1" max="30">
+                      <span class="icon is-small is-left">
+                        <i class="fas fa-paw"></i>
+                      </span>
+                      <span class="icon is-small is-right">
+                        <i class="fas fa-times is-hidden pet-age-validator"></i>
+                        <i class="fas fa-check is-hidden pet-age-validator"></i>
+                      </span>
+                    </div>
+                  </div>
+                  
+                  <div class="control">
+                    <div>
+                      <label class="radio">
+                      <input type="radio" name="age-unit" value="months" id="age-unit-months">
+                        Months
+                      </label>
+                    </div>
+                    <div>
+                      <label class="radio">
+                      <input type="radio" name="age-unit" value="year" id="age-unit-years" checked>
+                        Years
+                      </label>
+    
+                    </div>
+                  </div>
+    
+                </div>
+              </div>
+                  
             </div>
           </div>
-              
-        </div>
-      </div>
-      <div class="field is-grouped is-grouped-centered is-fullwidth">
-        <button name="submit-button" class="button" type="submit" disabled>Request Consultation</button>
-      </div>
-    </form>
+          <div class="field is-fullwidth">
+            <button name="submit-button" class="button" type="submit" id="request-consultation-button" disabled>Request Consultation</button>
+          </div>
+        </form>
+        
+      </section>
+    </div>
   </main>
-  <footer>
-
+  <footer class="footer mt-6 p-4 is-flex" >
+    <a href="./index.html" target="_blank" rel="noopener noreferrer">
+      <img src="./assets/Square Logo.png" alt="Paradigm Pet Professionals Square Logo - Evidence-based pet care advice for every pet lover" width="100px">
+    </a>
+    <p class="navigation-list">
+      <a href="./index.html" class="navigation-list_item">Home Page</a>
+      <a href="./cats.html" class="navigation-list_item">Cats</a>
+      <a href="./dogs.html" class="navigation-list_item">Dogs</a>
+      <a href="./small-animals.html" class="navigation-list_item">Small Animals</a>
+      <a href="./contact-us.html" class="navigation-list_item is-current">Contact Us</a>
+    </p>
   </footer>
-  <script defer src="./scripts/form-validation.js"></script>
 </body>
+<script defer src="./scripts/form-validation.js"></script>
+<script src="./scripts/side-nav.js"></script>
 </html>
