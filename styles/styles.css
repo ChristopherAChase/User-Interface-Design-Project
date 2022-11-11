@@ -1,16 +1,154 @@
-.root{ 
-  --midnight-blue: #003B6D;
+html{
+  background-color: #003B6D;
 }
+
+body{
+  background-color: white;
+  position: relative;
+  min-height: 100vh;
+}
+
+main{
+  padding-bottom: 8rem; /*make room for footer which is has absolute positioning*/
+}
+
+#request-consultation-button { 
+  margin-left: 25%;
+  width: 50%;
+  height: 2.5em;
+  line-height: 1.5;
+  font-size: 1.5rem;
+  text-align: center;
+  border: 3px solid #6699CC;
+  border-radius: 5px;
+  padding: calc(0.5em - 3px) 1em;
+  display: inline-flex;
+  align-items: center;
+  background-color: white;
+}
+
+#request-consultation-button:disabled {
+  border-color: silver;
+}
+
+#request-consultation-button a{
+  color: black;
+  font-weight: 400;
+}
+
+#request-consultation-button:not(:disabled):hover{
+  border: 3px solid #003B6D;
+  background-color: #6699CC;
+}
+
+#request-consultation-button:hover a{
+  color: white;
+}
+
+
 .brand-name-logo {
   height: 5em;
 }
 
-.navbar-item:hover{
-  background-color: var(--midnight-blue);
+.is-current{
+  font-weight: 500; 
+  color: black; 
+  border-bottom: 5px solid #003B6D
 }
 
+.navbar-link:hover, 
+.navbar-end>a.navbar-item:hover,
+.navigation-list_item:hover
+{
+  font-weight: 500; 
+  color: black; 
+} 
+
+.navbar-link:hover:not(.is-current), 
+.navbar-end>a.navbar-item:hover:not(.is-current),
+.navbar-dropdown .navbar-item:hover,
+.navigation-list_item:hover:not(.is-current)
+{
+  border-bottom: 5px solid #6699CC
+} 
+
+.navbar-dropdown .navbar-item:last-child:hover{
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+.navbar-item{
+  align-self: flex-end;
+  justify-content: center;
+  height: 50%;
+  width: 200px;
+  box-sizing: border-box;
+}
+
+.navbar-dropdown{
+  padding-bottom: 0;
+  padding-top: 0;
+}
+
+.navbar-dropdown a.navbar-item{
+  padding-right: 1rem !important;
+}
+
+.navbar-link{
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+}
+
+a:visited:not(.navbar-link):not(.navbar-item):not(.navigation-list_item){
+  color: silver;
+  
+}
+
+a:not(:visited):not(.navbar-link):not(.navbar-item):not(.navigation-list_item){
+  color: #003B6D
+}
+
+
+
+footer.footer{
+  position: absolute;
+  bottom: 0;
+  background-color: silver;
+  width: 100%;
+  height: 8em
+}
+
+.navigation-list{
+  position: absolute;
+  width: 75%;
+  left: 12.5%;
+  top: 0;
+  display: flex;
+  height: 123px;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.navigation-list_item{
+  padding: 1em 2em 0;
+}
+
+
+.navbar-link:hover, 
+.navbar-end>a.navbar-item:hover,
+.navigation-list_item:hover,
+.navbar-link:hover:not(.is-current), 
+.navbar-end>a.navbar-item:hover:not(.is-current),
+.navigation-list_item:hover:not(.is-current){
+  transition: all linear .09s;
+}
+
+
+
+/* Form validation styling */
+
 select.success, input.success{
-  /* background-color: hsla(141, 34%, 74%, 0.527) ; */
   border-color: hsl(141, 53%, 53%);
   border-width: 2px;
 }
