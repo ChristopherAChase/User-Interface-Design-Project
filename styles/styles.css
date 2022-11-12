@@ -12,6 +12,13 @@ main{
   padding-bottom: 8rem; /*make room for footer which is has absolute positioning*/
 }
 
+.y-centered{
+  position: absolute;
+  top:50%;
+  transform: translateY(-50%);
+  width: 95%;
+}
+
 #request-consultation-button { 
   margin-left: 25%;
   width: 50%;
