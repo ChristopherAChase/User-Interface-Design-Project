@@ -35,7 +35,7 @@ main{
 }
 
 #request-consultation-button:disabled {
-  border-color: silver;
+  border-color: #bdbdbd;
 }
 
 #request-consultation-button a{
@@ -46,12 +46,12 @@ main{
 #request-consultation-button:not(:disabled):hover{
   border: 3px solid #003B6D;
   background-color: #6699CC;
-}
-
-#request-consultation-button:hover a{
   color: white;
 }
 
+#request-consultation-button:not(:disabled):hover a {
+  color: white;
+}
 
 .brand-name-logo {
   height: 5em;
@@ -108,8 +108,7 @@ main{
 }
 
 a:visited:not(.navbar-link):not(.navbar-item):not(.navigation-list_item){
-  color: silver;
-  
+  color: #BDBDBD;  
 }
 
 a:not(:visited):not(.navbar-link):not(.navbar-item):not(.navigation-list_item){
@@ -121,7 +120,7 @@ a:not(:visited):not(.navbar-link):not(.navbar-item):not(.navigation-list_item){
 footer.footer{
   position: absolute;
   bottom: 0;
-  background-color: silver;
+  background-color: #BDBDBD;
   width: 100%;
   height: 8em
 }
